@@ -1,9 +1,12 @@
 const mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost:27017/tarefas');
+
 const taskSchema = new mongoose.Schema({
     titulo: {
         type: String,
         required: true
-    },    
+    },
     status: {
         type: Boolean,
         default: true
@@ -15,3 +18,5 @@ const taskSchema = new mongoose.Schema({
 });
 
 const Task = mongoose.model('Task', taskSchema);
+
+module.exports = Task;
