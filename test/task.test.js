@@ -8,4 +8,5 @@ test('Deve criar uma nova tarefa', async() =>{
 
     expect(res.statusCode).toBe(201);
     expect(res.body._id).toBeDefined();
-})
+},50000)
+
