@@ -25,4 +25,9 @@ async function getTaskById(req,res){
     res.status(200).json(task)
 }
 
-module.exports = {addtask, getTasks, getTaskById}
+async function deleteTask(req,res){
+    const task = await Task.findByIdAndDelete(req.params.id)
+    res.status(200).json(task)
+}
+
+module.exports = {addtask, getTasks, getTaskById, deleteTask}
