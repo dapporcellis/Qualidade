@@ -20,12 +20,12 @@ test('Deve listar todas as tarefas', async() =>{
 
 test('Deve editar uma tarefa', async() =>{
     //trocar o id para um existente
-    const res2 = await request(app)
+    const res = await request(app)
     .put("/tasks/681e6fd83d0d325876f9f186")
     .send({titulo:"Tarefa Editada"})
 
-    expect(res2.statusCode).toBe(200);
-    expect(res2.body.titulo).toBe("Tarefa Editada");
+    expect(res.statusCode).toBe(200);
+    expect(res.body.titulo).toBe("Tarefa Editada");
 })
 
 test('Deve deletar uma tarefa', async() =>{
@@ -34,5 +34,5 @@ test('Deve deletar uma tarefa', async() =>{
     .delete("/tasks/681e6fd83d0d325876f9f186")
 
     expect(res.statusCode).toBe(200);
-    expect(res.body.titulo).toBe("Tarefa Deletada");
+    expect(res.body.message).toBe("Tarefa deletada com sucesso");
 })

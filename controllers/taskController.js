@@ -18,7 +18,11 @@ async function getTasks(req,res){
 }
 
 async function getTaskById(req,res){
-
+    console.log(req.params)
+    const task = await Task.findById(req.params.id)
+    task.titulo = req.body.titulo;
+    await task.save()
+    res.status(200).json(task)
 }
 
 module.exports = {addtask, getTasks, getTaskById}
