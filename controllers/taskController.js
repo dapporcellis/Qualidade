@@ -17,4 +17,8 @@ async function getTasks(req,res){
     res.status(200).json(tasks)
 }
 
-module.exports = {addtask, getTasks}
+async function getTaskById(req,res){
+
+}
+
+module.exports = {addtask, getTasks, getTaskById}
