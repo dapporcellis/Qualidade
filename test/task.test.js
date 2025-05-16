@@ -10,3 +10,11 @@ test('Deve criar uma nova tarefa', async() =>{
     expect(res.body._id).toBeDefined();
 },50000)
 
+test('Deve listar todas as tarefas', async() =>{
+    const res = await request(app)
+    .get('/tasks')
+    
+    expect(res.statusCode).toBe(200);
+    expect(res.body.length).toBeGreaterThan(2);
+})
+

@@ -7,9 +7,14 @@ async function addtask(req,res){
     })
 
     const a = await task.save()
-
+    console.log(a)
     
     res.status(201).json(task)
 }
 
-module.exports = {addtask}
+async function getTasks(req,res){
+    const tasks = await Task.find()
+    res.status(200).json(tasks)
+}
+
+module.exports = {addtask, getTasks}
